@@ -1,0 +1,7 @@
+.parent {
+    background: url('/bgs/about2.jfif');
+    background-image: url('/bgs/about.jfif');
+    background-position: center center;
+    background-size: contain;
+    background-repeat: repeat; 
+}

@@ -1,0 +1,45 @@
+.holder{
+    width: 70% ;
+    min-width: 400px;
+    max-width: 1000px;
+    height: 70% ;
+    min-height: 400px;
+    max-height: 1000px;
+    margin: 0 auto;
+}
+
+.active {
+    background-color: #D3AD7F;
+    position: relative;
+}
+
+.active::after{
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-image: url('/bgs/SubtractBottom.svg');
+    top: 100%;
+    right: 0;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transition: all linear 0.3s;
+}
+
+.active::before{
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-image: url('/bgs/SubtractTop.svg');
+    bottom: 100%;
+    right: 0;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transition: all linear 0.3s;
+
+}

@@ -1,0 +1,38 @@
+.parent {
+    background-color: #191919;
+    padding: 30px 0px;
+}
+
+.parentSlider{
+    width: 100%;
+}
+
+.sliderItem {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.sliderItem .SlidImage{
+    /* width: 100%; */
+    /* object-fit: cover; */
+    height: 194px;
+}
+
+.sliderItem .info .imageIcon{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.sliderItem .info .title{
+    /* width: 100%;
+    display: block;
+    color: #fff; */
+    font-size: 15px;
+}
+
+.sliderItem .info .desc {
+    color: #938E8E;
+    font-size: 11px;
+    line-height: 1.8;
+}

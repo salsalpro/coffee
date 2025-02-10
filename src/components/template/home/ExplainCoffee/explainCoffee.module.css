@@ -1,0 +1,61 @@
+.explainCoffee{
+    background-color: #000;
+    color: #fff;
+    padding-top: 50px;
+    padding-bottom: 270px;
+}
+
+.image{
+    width: 150px;
+    object-fit: cover;
+}
+
+.Title_coffee {
+    color: #fff;
+    font-size: 18px;
+    padding: 5px 10px;
+    line-height: 1.6;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.infos{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px 10px;
+    height: 100%;
+}
+
+.infos .description {
+    font-size: 11px;
+    color: #938E8E;
+    line-height: 1.8;
+}
+
+.infos .LinkInfo{
+    display: block;
+    text-align: right;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.infos .LinkInfo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 0.06px;
+    border-radius: 2px;
+    background-color: #fff;
+    transition: all ease 0.3s;
+}
+
+.infos .LinkInfo:hover::after {
+    width: 0;
+    transition: all ease 0.3s;
+}

@@ -1,0 +1,73 @@
+.parent {
+    width: 100%;
+    background-color: #191919;
+    padding: 70px 10px 70px 10px;
+    position: relative;
+}
+
+.WraperTop {
+ position: relative;
+    top: -144px;
+    width: 100%;
+}
+
+.WraperTop .text {
+    color: #fff;
+    font-size: 130px;
+    position: absolute;
+    left: 0;
+    top: -68px;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.WraperTop .imageWraperTop {
+    position: absolute;
+    top: -120px;
+    right: 0;
+    left: 50px;
+    margin: 0 auto;
+    width: 305px;
+    height: 300px;
+    z-index: 2;
+}
+
+.coffeeOnSpace {
+    position: relative;
+    object-fit: contain;
+    width: 172px;
+    height: 115px;
+    z-index: 1;
+    top: 25px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
+.WraperTop .coffeeOnSpace1 {
+    transform: rotate(-90deg);
+}
+
+.coffeeOnSpace2 {
+    transform: rotate(90deg);
+}
+
+
+ /* ////// main menu  */
+
+.main_menu{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    padding: 0 100px;
+}
+
+.menu_item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+    border-bottom: 1px solid #605D5D;
+    max-height: 100.67px;
+}

@@ -1,0 +1,65 @@
+
+
+.SpecialSection {
+    background-color: #101011;
+    padding: 30px 20px 60px 20px;
+}
+
+.Specialcards{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 200px;
+}
+
+.Specialcards .SpecialcardItem {
+    width: 250px;
+    max-height: 320px;
+    padding: 30px 10px 20px 10px;
+    transition: all ease 0.3s;
+    border-radius: 6px;
+}
+
+.Specialcards .SpecialcardItem:hover {
+    background-color: #191919;
+    box-shadow: 10px 10px 20px #000;
+    transition: all ease 0.3s;
+}
+
+.Specialcards .SpecialcardItem .image {
+    width: 170px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.SpecialcardItemTitle{
+    color: #D3AD7F;
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 3px 0 10px 0;
+    font-size: 15px;
+}
+
+.SpecialcardItemInfo{
+    width: 100%;
+    padding: 0 20px;
+    display: block;
+    color: #938E8E;
+    height: 40px;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.SpecialcardItemPrice{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+}

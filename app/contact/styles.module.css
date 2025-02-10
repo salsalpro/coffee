@@ -1,0 +1,13 @@
+.iconParent{
+    background-color: #fff ;
+    
+}
+
+.icon {
+    color: rgb(165, 91, 42);;
+}
+
+.itemParent:hover .iconParent , .itemParent:hover .iconParent .icon {
+    background-color: #D3AD7F;
+    color: #fff;
+}
