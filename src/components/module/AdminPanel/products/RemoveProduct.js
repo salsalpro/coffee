@@ -9,7 +9,7 @@ export default function RemoveProduct({ _id }) {
 
   const [isPending, startTransition] = useTransition()
   const [isFetching, setIsFetching] = useState(false)
-  
+
   const router = useRouter()
 
   const DeleteProductHandeler = async () => {
@@ -19,7 +19,13 @@ export default function RemoveProduct({ _id }) {
 
     try {
       const res = await fetch(`/api/products/${_id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        cache: "no-store",
+        headers: {
+          "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          Pragma: "no-cache",
+          Expires: "0",
+        }
       })
 
       if (res.status === 200) {

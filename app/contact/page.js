@@ -58,17 +58,9 @@ export default function About() {
                     </Link>
                 </div>
                 <Form />
-                <MyMap />
+                {/* <MyMap /> */}
             </div>
             <Footer />
         </div>
     );
 }
-
-
-////////////
-
-// export default function Contact() { 
-    
-//     return <h1>about</h1>
-// }

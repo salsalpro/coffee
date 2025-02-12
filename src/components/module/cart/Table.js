@@ -30,7 +30,7 @@ export default function Table({ stateOptions: stateOptionsGot }) {
 
         const res = await fetch(`/api/discount/use/${discount}`, {
             method: "GET",
-            cache: "no-store", // جلوگیری از کش مرورگر
+            cache: "no-store",
             headers: {
                 "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
                 Pragma: "no-cache",

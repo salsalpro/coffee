@@ -1,6 +1,6 @@
 'use client'
 import { showSwal } from '@/src/utils/helpers';
-import { useRouter } from 'next/navigation'; 
+import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { IoTrashSharp } from 'react-icons/io5';
 import swal from "sweetalert"
@@ -9,8 +9,8 @@ import swal from "sweetalert"
 
 export default function RemoveWish({ userID, productID }) {
 
-    const [isPending , startTransition] = useTransition()
-    const [isFetching , setIsFetching] = useState(false)
+    const [isPending, startTransition] = useTransition()
+    const [isFetching, setIsFetching] = useState(false)
     const router = useRouter()
 
 
@@ -18,28 +18,34 @@ export default function RemoveWish({ userID, productID }) {
         swal({ title: 'میخواهید این محصول را از علاقه مندی های خود بردارید ؟', icon: 'warning', buttons: ['خیر', 'بله'] })
             .then(async result => {
                 if (result) {
-                    try{
+                    try {
                         setIsFetching(true)
-                        const wish = { user:userID, product:productID }
+                        const wish = { user: userID, product: productID }
                         const res = await fetch(`http://localhost:3000/api/wishlist`, {
                             method: 'DELETE',
+                            cache: "no-store",
+                            headers: {
+                                "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+                                Pragma: "no-cache",
+                                Expires: "0",
+                            },
                             body: JSON.stringify({ ...wish })
                         })
                         if (res.status === 200) {
-                            return showSwal('از علاقه مندی های شما حذف شد' , 'success' , 'ادامه')
+                            return showSwal('از علاقه مندی های شما حذف شد', 'success', 'ادامه')
                         }
-                    } catch (err){
+                    } catch (err) {
                         console.error("خطا در حذف علاقه‌مندی:", err);
                         return showSwal('خطایی رخ داد، لطفاً دوباره امتحان کنید', 'error', 'متوجه شدم');
                     } finally {
                         setIsFetching(false);
 
                         startTransition(() => {
-                            router.refresh(); 
+                            router.refresh();
                         });
                     }
 
-                    
+
                 }
             })
     }
@@ -47,5 +53,5 @@ export default function RemoveWish({ userID, productID }) {
 
 
 
-    return <IoTrashSharp className={`mx-1 cursor-pointer`} color='#D3AD7F'  onClick={isPending || isFetching ? null : RemoveWishFromWishlist}/>
+    return <IoTrashSharp className={`mx-1 cursor-pointer`} color='#D3AD7F' onClick={isPending || isFetching ? null : RemoveWishFromWishlist} />
 }

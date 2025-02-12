@@ -21,7 +21,15 @@ export default function SendTicket() {
 
   useEffect(() => {
     const getDepartments = async () => {
-      const res = await fetch('/api/departments')
+      const res = await fetch('/api/departments', {
+        method: 'GET',
+        cache: "no-store",
+        headers: {
+          "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+          Pragma: "no-cache",
+          Expires: "0",
+        }
+      })
       const departments = await res.json()
       setDepartments(departments)
     }

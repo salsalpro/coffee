@@ -19,7 +19,15 @@ export default function RemoveDiscount({ code }) {
                 if (result) {
                     try {
                         setIsFetching(true)
-                        const res = await fetch(`/api/discount/${code}`, { method: 'DELETE' })
+                        const res = await fetch(`/api/discount/${code}`, {
+                            method: 'DELETE',
+                            cache: "no-store",
+                            headers: {
+                                "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+                                Pragma: "no-cache",
+                                Expires: "0",
+                            }
+                        })
                         if (res.status === 200) {
                             return showSwal('کد تخفیف حذف شد', 'success', 'ادامه')
                         }

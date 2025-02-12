@@ -5,45 +5,49 @@ import { IoTrashSharp } from 'react-icons/io5'
 import { showSwal } from '@/src/utils/helpers'
 import { useRouter } from 'next/navigation'
 
-export default function UserRemove({id}) {
+export default function UserRemove({ id }) {
 
-    const [isPending , startTransition] = useTransition()
-    const [isFetching , SetIsFetching] = useState(false)
+    const [isPending, startTransition] = useTransition()
+    const [isFetching, SetIsFetching] = useState(false)
 
     const router = useRouter()
 
     const removeUser = () => {
-        swal({title:'آیا متمعن هستید که این کاربر حذف شود ؟ ' , icon:'warning' , buttons:['خیر','بله']})
-        .then(async result => {
-            try{
-                if(result){
-                    if(!id){
-                        return showSwal('کاربر یافت نشد' , 'error' , 'ادامه')
+        swal({ title: 'آیا متمعن هستید که این کاربر حذف شود ؟ ', icon: 'warning', buttons: ['خیر', 'بله'] })
+            .then(async result => {
+                try {
+                    if (result) {
+                        if (!id) {
+                            return showSwal('کاربر یافت نشد', 'error', 'ادامه')
+                        }
+                        SetIsFetching(true)
+                        const res = await fetch('/api/user', {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+                                Pragma: "no-cache",
+                                Expires: "0",
+                            },
+                            cache: "no-store",
+                            body: JSON.stringify({ id })
+                        })
+
+                        if (res.status === 200) {
+                            return showSwal('کاربر حذف شد', 'success', 'ادامه')
+                        }
+
                     }
-                    SetIsFetching(true)
-                    const res = await fetch('/api/user' , {
-                        method:'DELETE',
-                        headers:{
-                            'Content-Type':'application/json'
-                        },
-                        body:JSON.stringify({id})
+                } catch (err) {
+                    return console.log('err => ', err)
+                } finally {
+                    SetIsFetching(false)
+
+                    startTransition(() => {
+                        router.refresh()
                     })
-
-                    if(res.status === 200){
-                        return showSwal('کاربر حذف شد' ,'success','ادامه')
-                    }
-
                 }
-            }catch(err){
-                return console.log('err => ' , err)
-            }finally{
-                SetIsFetching(false)
-                
-                startTransition(() => {
-                    router.refresh()
-                })
-            }
-        })
+            })
     }
 
     return <td className="py-3 text-center px-4 border border-[#938E8E] col-span-1 w-10" onClick={isPending || isFetching ? null : removeUser} ><button className="bg-white px-3 py-1 rounded"><IoTrashSharp color='#D3AD7F' /></button></td>
