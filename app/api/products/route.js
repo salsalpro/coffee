@@ -13,7 +13,7 @@ export async function GET(req) {
 }
 
 export async function POST(req) {
-    // try {
+    try {
         const admin = await AuthAdmin()
         if (!admin) {
             throw new Error('this api protect and you cant access it')
@@ -73,9 +73,9 @@ export async function POST(req) {
 
         return Response.json({ message: 'product did not created successfully' }, { status: 500 })
 
-    // } catch (err) {
-    //     return Response.json({ message: err.message }, { status: 500 })
-    // }
+    } catch (err) {
+        return Response.json({ message: err.message }, { status: 500 })
+    }
 }
 
 
