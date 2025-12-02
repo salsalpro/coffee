@@ -13,10 +13,10 @@ export async function POST(req) {
 
         const { username: username1, phone: phone1, email: email1, password: password1 } = body
 
-        const username = username1?.trim();
-        const phone = phone1?.trim();
-        const email = email1?.trim();
-        const password = password1?.trim();
+        const username = username1.trim();
+        const phone = phone1.trim();
+        const email = email1.trim();
+        const password = password1.trim();
 
         if (!username) {
             return Response.json({ message: 'احراض هویت به مشکل خورد' }, { status: 422 })
