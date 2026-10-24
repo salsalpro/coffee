@@ -4,7 +4,15 @@ import AOSInit from '@/src/utils/aos'
 import ScrollToTop from '@/src/utils/scrollToTop'
 
 import { Vazirmatn } from 'next/font/google'
+import { Geist, Geist_Mono } from "next/font/google";
+
+
 const vazir = Vazirmatn({ subsets: ['latin'] })
+
+const geistSans = Geist({ subsets: ["latin"]});
+
+const geistMono = Geist_Mono({ subsets: ["latin"]});
+
 
 
 export const metadata = {
@@ -19,7 +27,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir='rtl'>
-      <body className={vazir.className}>
+      <body className={`${vazir.className} ${geistSans.className} ${geistMono.className} antialiased`}>
         <AOSInit />
         {children}
         <ScrollToTop />
